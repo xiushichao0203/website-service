@@ -1,0 +1,47 @@
+spring:
+#数据库配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://www.mylife4myself.cn:3306/website-test?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 数据库密码
+#  resources:
+#    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,classpath:/templates/
+#邮件配置
+  mail:
+    host: smtp.qq.com
+    port: 587
+    username: 邮箱地址
+    nickname: 发送时候的通知名字
+    password: 邮箱密码
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+#mybatis
+mybatis:
+  type-aliases-package: com.website.service.entity,com.website.service.entity.system,com.website.service.entity.weibo
+  mapperLocations: classpath:mapper/system/*.xml,classpath*:mapper/weibo/*.xml,classpath*:mapper/*.xml
+
+#线程池
+task:
+  pool:
+    corePoolSize: 10
+    maxPoolSize: 10
+    keepAliveSeconds: 300
+    queueCapacity: 50
+    threadNamePrefix: website-service-
+
+#日志
+logging:
+  file:
+    name: /opt/logs/crawler.log
+
+server:
+  port: 8080
+
+
